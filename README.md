@@ -205,6 +205,18 @@ Security operations workflow demonstrating:
 
 ---
 
+## 🏢 Enterprise Operations Agent
+
+Enterprise operations workflow orchestration demonstrating:
+- cross-functional coordination
+- workflow optimization
+- operational intelligence
+- enterprise process automation
+
+![Enterprise Operations](screenshots/enterprise_operations.png)
+
+---
+
 ## 💻 IT Support Workflow
 
 IT service desk automation system supporting:
