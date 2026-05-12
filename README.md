@@ -217,7 +217,7 @@ IT service desk automation system supporting:
 
 ---
 
-## 📊 Analytics Dashboard
+## 📊 Analytics Agent Response
 
 Interactive enterprise analytics module displaying:
 - operational KPIs
