@@ -3,10 +3,17 @@ from openai import AzureOpenAI
 from dotenv import load_dotenv
 import os
 import time
+import glob
 
-# ==================================================
+# LangChain Imports
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import TextLoader
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+# =========================================================
 # LOAD ENV VARIABLES
-# ==================================================
+# =========================================================
 
 load_dotenv()
 
@@ -14,9 +21,9 @@ AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
 AZURE_API_KEY = os.getenv("AZURE_API_KEY")
 DEPLOYMENT_NAME = os.getenv("DEPLOYMENT_NAME")
 
-# ==================================================
+# =========================================================
 # AZURE OPENAI CLIENT
-# ==================================================
+# =========================================================
 
 client = AzureOpenAI(
     azure_endpoint=AZURE_ENDPOINT,
@@ -24,30 +31,30 @@ client = AzureOpenAI(
     api_version="2024-02-15-preview"
 )
 
-# ==================================================
+# =========================================================
 # PAGE CONFIG
-# ==================================================
+# =========================================================
 
 st.set_page_config(
-    page_title="HelixPoint AI Assistant",
-    page_icon=":robot_face:",
+    page_title="HelixPoint AI",
+    page_icon="🧠",
     layout="wide"
 )
 
-# ==================================================
+# =========================================================
 # CUSTOM CSS
-# ==================================================
+# =========================================================
 
 st.markdown("""
 <style>
 
 .main {
-    background-color: #000000;
+    background-color: #0e1117;
 }
 
 .stChatMessage {
-    border-radius: 12px;
-    padding: 10px;
+    border-radius: 14px;
+    padding: 12px;
 }
 
 .block-container {
@@ -55,78 +62,92 @@ st.markdown("""
 }
 
 .big-title {
-    font-size: 42px;
+    font-size: 46px;
     font-weight: 700;
-    color: #ffffff;
+    color: white;
 }
 
 .subtitle {
     color: #a0a0a0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.source-box {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-# ==================================================
-# LOAD COMPANY KNOWLEDGE
-# ==================================================
+# =========================================================
+# LOAD DOCUMENTS
+# =========================================================
 
-def load_file_content(filename):
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            return f.read()
-    except:
-        return ""
+@st.cache_resource
+def load_vectorstore():
 
-company_overview = load_file_content("company_overview.md")
-onboarding_handbook = load_file_content("onboarding_handbook.md")
-sample_interactions = load_file_content("sample_interactions.md")
+    documents = []
 
-# ==================================================
+    for file in glob.glob("documents/*.md"):
+
+        loader = TextLoader(file, encoding="utf-8")
+        documents.extend(loader.load())
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,
+        chunk_overlap=50
+    )
+
+    docs = text_splitter.split_documents(documents)
+
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
+
+    vectorstore = FAISS.from_documents(docs, embeddings)
+
+    return vectorstore
+
+vectorstore = load_vectorstore()
+
+# =========================================================
 # SYSTEM PROMPT
-# ==================================================
+# =========================================================
 
-SYSTEM_PROMPT = f"""
-You are HelixPoint AI Workflow Assistant.
+SYSTEM_PROMPT = """
+You are HelixPoint AI Assistant.
 
-You are an enterprise onboarding and workflow assistant.
+You are a professional enterprise onboarding and workflow assistant.
 
-Your job is to help employees:
-- navigate onboarding
-- understand workflows
-- answer HR and IT questions
-- explain company processes
-- escalate sensitive issues responsibly
+Your job is to:
+- Answer employee questions
+- Explain onboarding processes
+- Explain HR and IT workflows
+- Assist with internal company procedures
+- Recommend escalation when appropriate
 
-Behavior Rules:
-- Be professional, helpful, and concise
-- Use bullet points where appropriate
+Rules:
+- Be concise
+- Be professional
+- Use bullet points when useful
 - Never invent policies
 - If unsure, say you are unsure
-- Recommend escalation for legal/security/payroll issues
-- Maintain a friendly enterprise tone
-
-COMPANY OVERVIEW:
-{company_overview}
-
-ONBOARDING HANDBOOK:
-{onboarding_handbook}
-
-SAMPLE INTERACTIONS:
-{sample_interactions}
+- Use retrieved company knowledge when available
 """
 
-# ==================================================
+# =========================================================
 # SESSION STATE
-# ==================================================
+# =========================================================
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# ==================================================
+# =========================================================
 # SIDEBAR
-# ==================================================
+# =========================================================
 
 with st.sidebar:
 
@@ -134,9 +155,12 @@ with st.sidebar:
 
     st.markdown("""
 ### Enterprise Workflow Assistant
-Powered by:
+
+Powered By:
 - Azure OpenAI
 - GPT-4.1
+- LangChain
+- FAISS
 - Streamlit
 """)
 
@@ -147,9 +171,10 @@ Powered by:
     examples = [
         "How do I request leave?",
         "How do I reset my VPN password?",
-        "Who do I contact for payroll issues?",
         "Explain the onboarding process.",
-        "How do I escalate a security incident?"
+        "Who handles payroll issues?",
+        "What is the escalation policy?",
+        "How do I report a security incident?"
     ]
 
     for example in examples:
@@ -161,23 +186,23 @@ Powered by:
         st.session_state.messages = []
         st.rerun()
 
-# ==================================================
+# =========================================================
 # MAIN HEADER
-# ==================================================
+# =========================================================
 
 st.markdown(
-    '<div class="big-title">🧠 HelixPoint AI Workflow Assistant</div>',
+    '<div class="big-title">🧠 HelixPoint AI Assistant</div>',
     unsafe_allow_html=True
 )
 
 st.markdown(
-'<div class="subtitle">Enterprise onboarding and workflow assistant powered by Azure OpenAI.</div>',
-unsafe_allow_html=True
+    '<div class="subtitle">Enterprise onboarding and workflow assistant powered by Azure OpenAI + RAG</div>',
+    unsafe_allow_html=True
 )
 
-# ==================================================
+# =========================================================
 # DISPLAY CHAT HISTORY
-# ==================================================
+# =========================================================
 
 for message in st.session_state.messages:
 
@@ -185,15 +210,15 @@ for message in st.session_state.messages:
 
         st.markdown(message["content"])
 
-# ==================================================
+# =========================================================
 # USER INPUT
-# ==================================================
+# =========================================================
 
 user_input = st.chat_input("Ask a workflow or onboarding question...")
 
-# ==================================================
-# HANDLE USER MESSAGE
-# ==================================================
+# =========================================================
+# HANDLE USER INPUT
+# =========================================================
 
 if user_input:
 
@@ -207,18 +232,43 @@ if user_input:
         "content": user_input
     })
 
-    # Build messages for API
+    # =====================================================
+    # RETRIEVE DOCUMENTS
+    # =====================================================
+
+    retrieved_docs = vectorstore.similarity_search(
+        user_input,
+        k=4
+    )
+
+    retrieved_context = "\n\n".join([
+        doc.page_content for doc in retrieved_docs
+    ])
+
+    # =====================================================
+    # BUILD PROMPT
+    # =====================================================
+
+    final_system_prompt = f"""
+{SYSTEM_PROMPT}
+
+RELEVANT COMPANY KNOWLEDGE:
+{retrieved_context}
+"""
+
     api_messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT
-        },
+            "content": final_system_prompt
+        }
     ]
 
-    # Add conversation history
     api_messages.extend(st.session_state.messages)
 
-    # Assistant response UI
+    # =====================================================
+    # ASSISTANT RESPONSE
+    # =====================================================
+
     with st.chat_message("assistant"):
 
         message_placeholder = st.empty()
@@ -230,24 +280,36 @@ if user_input:
             response = client.chat.completions.create(
                 model=DEPLOYMENT_NAME,
                 messages=api_messages,
-                temperature=0.7,
-                max_tokens=800
+                temperature=0.3,
+                max_tokens=700
             )
 
             assistant_response = response.choices[0].message.content
 
-            # Fake streaming effect
+            # Typing effect
             for chunk in assistant_response.split():
 
                 full_response += chunk + " "
 
-                time.sleep(0.02)
+                time.sleep(0.015)
 
                 message_placeholder.markdown(full_response + "▌")
 
             message_placeholder.markdown(full_response)
 
-            # Save assistant message
+            # Sources
+            with st.expander("📚 Retrieved Knowledge"):
+
+                for i, doc in enumerate(retrieved_docs):
+
+                    st.markdown(f"""
+<div class="source-box">
+<b>Source {i+1}</b><br>
+{doc.page_content[:500]}
+</div>
+""", unsafe_allow_html=True)
+
+            # Save assistant response
             st.session_state.messages.append({
                 "role": "assistant",
                 "content": full_response
@@ -255,14 +317,16 @@ if user_input:
 
         except Exception as e:
 
-            st.error("⚠️ Error communicating with Azure OpenAI")
+            st.error("Error communicating with Azure OpenAI")
 
             st.exception(e)
 
-# ==================================================
+# =========================================================
 # FOOTER
-# ==================================================
+# =========================================================
 
 st.divider()
 
-st.caption("HelixPoint AI Workflow Assistant • Azure OpenAI • GPT-4.1")
+st.caption(
+    "HelixPoint AI Assistant • Azure OpenAI • LangChain • FAISS • GPT-4.1"
+)
