@@ -1,42 +1,67 @@
-# Employee Onboarding Handbook
+# 👋 Employee Onboarding Handbook
 
-## Welcome to HelixPoint Technologies
+Welcome to HelixPoint Technologies.
 
-Welcome to HelixPoint Technologies. Employees use Microsoft 365 tools, collaboration platforms, and AI-assisted productivity workflows to support day-to-day operations.
+This handbook provides guidance for:
+- onboarding
+- security policies
+- IT setup
+- enterprise workflows
+- employee operations
 
-## First Week Checklist
+---
 
-New employees should complete the following tasks during onboarding:
+# 🖥 IT Setup
 
-- Activate Microsoft 365 account
-- Configure Microsoft Teams access
-- Review cybersecurity policies
-- Complete HR onboarding forms
-- Schedule onboarding meeting with manager
-- Review hybrid work expectations
+New employees must complete:
+- Microsoft Teams setup
+- VPN access configuration
+- multi-factor authentication enrollment
+- enterprise email activation
 
-## Workplace Tools
+For credential issues, contact the IT Support Agent.
 
-Employees use:
-- Microsoft Teams
-- Outlook
-- SharePoint
-- Power BI
-- Microsoft Copilot
+---
 
-## AI Usage Guidelines
+# 🔒 Security Policies
 
-Employees may use approved AI tools to:
-- summarize meetings
-- organize notes
-- retrieve company information
-- assist workflow productivity
+Employees must:
+- report phishing attempts immediately
+- avoid sharing passwords
+- enable MFA on enterprise accounts
+- follow cybersecurity compliance standards
 
-Employees should not upload confidential company information into unauthorized systems.
+Suspicious activity should be escalated to the Security Agent.
 
-Human review is required for important business decisions.
+---
 
-## Support Contacts
+# 👨‍💼 HR Policies
 
-HR Support: hrsupport@helixpoint-tech.com
-IT Support: helpdesk@helixpoint-tech.com
+Employees may:
+- request PTO through HR workflows
+- review onboarding materials
+- access employee benefits documentation
+- contact HR for payroll support
+
+---
+
+# 📊 Operational Workflows
+
+HelixPoint Enterprise AI can assist with:
+- onboarding guidance
+- workflow automation
+- IT ticket escalation
+- operational reporting
+- enterprise analytics
+
+---
+
+# 🤖 AI Assistant Usage
+
+Employees may ask the enterprise assistant questions such as:
+- "How do I request PTO?"
+- "Reset my VPN credentials"
+- "Summarize onboarding tasks"
+- "Show workflow performance metrics"
+
+The platform automatically routes requests to the appropriate enterprise agent.

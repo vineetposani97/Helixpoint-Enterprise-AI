@@ -1,54 +1,122 @@
-# HelixPoint AI Workflow Assistant – Architecture Overview
+# 🏗 HelixPoint Enterprise AI Architecture
 
-## System Components
+## System Overview
+
+HelixPoint Enterprise AI is a multi-agent enterprise operations platform designed to simulate real-world AI workflow orchestration inside modern organizations.
+
+The platform combines:
+- Azure OpenAI
+- Retrieval-Augmented Generation (RAG)
+- Multi-Agent Routing
+- Enterprise Workflow Automation
+- Operational Analytics
+- Persistent Ticket Logging
+
+---
+
+# 🔄 High-Level Workflow
 
 User Query
 ↓
-Microsoft Copilot Interface
+Intent Classification & Agent Routing
 ↓
-Prompt Instructions & Workflow Policies
+Specialized Enterprise Agent Selection
 ↓
-Enterprise Knowledge Sources
-- onboarding_handbook.md
-- company_overview.md
-- workflow policies
+Enterprise Knowledge Retrieval (FAISS)
 ↓
-AI Response Generation
+Azure OpenAI Response Generation
 ↓
-Responsible AI Escalation Layer
-(HR / IT / Management)
+Workflow Automation + Ticket Logging
 ↓
-Employee Guidance Output
+Analytics & Operational Insights
 
 ---
 
-## Workflow Features
+# 🤖 Multi-Agent Architecture
 
-- Employee onboarding assistance
-- IT setup guidance
-- HR workflow support
-- Responsible AI escalation handling
-- Workflow timeline generation
-- Enterprise policy grounding
-
----
-
-## Responsible AI Principles
-
-The assistant avoids:
-- unauthorized approvals
-- sensitive HR decisions
-- payroll modifications
-- confidential data exposure
-
-Escalation paths are recommended when requests require human authorization.
+## 👨‍💼 HR Agent
+Handles:
+- PTO requests
+- onboarding support
+- employee policy guidance
+- HR workflow automation
 
 ---
 
-## Example Enterprise Use Cases
+## 💻 IT Support Agent
+Handles:
+- password resets
+- VPN troubleshooting
+- Microsoft Teams access
+- enterprise IT escalation workflows
 
-- New employee onboarding
-- IT support triage
-- Workflow documentation assistance
-- Internal knowledge retrieval
-- Compliance-aware employee support
+---
+
+## 🔒 Security Agent
+Handles:
+- suspicious login detection
+- phishing escalation
+- incident response workflows
+- security alert automation
+
+---
+
+## 📊 Analytics Agent
+Handles:
+- KPI reporting
+- operational trend analysis
+- dashboard metrics
+- enterprise analytics insights
+
+---
+
+## 🏢 Enterprise Operations Agent
+Fallback enterprise assistant responsible for:
+- workflow orchestration
+- operational support
+- general enterprise assistance
+
+---
+
+# 🧠 Retrieval-Augmented Generation (RAG)
+
+The platform uses:
+- Sentence Transformers embeddings
+- FAISS vector similarity search
+- contextual enterprise knowledge retrieval
+
+to generate grounded and enterprise-aware responses.
+
+---
+
+# 🗄 Persistent Storage
+
+SQLite is used for:
+- ticket logging
+- operational persistence
+- workflow tracking
+- escalation history
+
+---
+
+# 📊 Analytics Layer
+
+Plotly dashboards visualize:
+- enterprise ticket distribution
+- workflow activity
+- onboarding metrics
+- operational KPIs
+
+---
+
+# ☁ Deployment
+
+Frontend:
+- Streamlit Cloud
+
+Backend Stack:
+- Python
+- Azure OpenAI
+- LangChain
+- FAISS
+- SQLite

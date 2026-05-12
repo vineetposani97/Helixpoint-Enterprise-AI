@@ -1,39 +1,76 @@
-# Sample AI Workflow Interactions
-
-## Example 1 — PTO Policy Question
-
-Employee:
-How do I request PTO?
-
-AI Assistant:
-Employees can submit PTO requests through the HR portal after manager approval. PTO requests should generally be submitted at least two weeks in advance when possible.
-
-For additional support, please contact HR Support.
+# 💬 Sample Enterprise AI Interactions
 
 ---
 
-## Example 2 — Onboarding Guidance
+## 👨‍💼 HR Agent Example
 
-Employee:
-What should I complete during my first week?
+### User
+I need PTO next Friday.
 
-AI Assistant:
-New employees should:
-- activate Microsoft 365 account
-- configure Microsoft Teams
-- complete cybersecurity training
-- review HR onboarding documents
-- schedule onboarding meeting with manager
+### AI Assistant
+Your request has been routed to the HR Agent.
 
----
-
-## Example 3 — Responsible AI Escalation
-
-Employee:
-Can you approve my PTO request?
-
-AI Assistant:
-I cannot approve PTO requests directly. Please submit your request through the HR portal or contact your manager for approval assistance.
+Recommended actions:
+- Submit PTO request
+- Notify reporting manager
+- Confirm backup coverage
 
 ---
 
+## 💻 IT Support Example
+
+### User
+I’m locked out of Microsoft Teams.
+
+### AI Assistant
+Your request has been routed to the IT Support Agent.
+
+Recommended actions:
+- Reset enterprise credentials
+- Verify MFA authentication
+- Review account access logs
+
+---
+
+## 🔒 Security Incident Example
+
+### User
+Suspicious login detected from another country.
+
+### AI Assistant
+Your request has been escalated to the Security Agent.
+
+Recommended actions:
+- Reset password immediately
+- Enable MFA verification
+- Review login activity
+- Escalate incident for investigation
+
+---
+
+## 📊 Analytics Agent Example
+
+### User
+Show operational KPI trends.
+
+### AI Assistant
+Your request has been routed to the Analytics Agent.
+
+Insights generated:
+- onboarding completion increased by 12%
+- ticket resolution improved by 18%
+- security escalations reduced by 9%
+
+---
+
+## 🏢 Enterprise Operations Example
+
+### User
+Summarize today’s onboarding operations meeting.
+
+### AI Assistant
+Meeting summary generated:
+- reviewed onboarding delays
+- discussed IT support backlog
+- proposed workflow automation improvements
+- assigned escalation review tasks
