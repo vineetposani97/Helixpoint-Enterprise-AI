@@ -109,19 +109,6 @@ Workflow Automation + Analytics
 
 ---
 
-# 📸 Platform Screenshots
-
-## Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-## HR Agent Workflow
-![HR Agent](screenshots/hr_agent.png)
-
-## Security Escalation
-![Security](screenshots/security_agent.png)
-
----
-
 # 📌 Example Queries
 
 ### HR Agent
@@ -177,6 +164,80 @@ Built as an enterprise AI engineering project focused on:
 - workflow automation
 - retrieval-augmented generation
 - operational intelligence
+
+---
+
+# 📸 Platform Screenshots
+
+## 🖥 Enterprise Dashboard
+
+Real-time enterprise operations dashboard featuring:
+- AI workflow metrics
+- onboarding KPIs
+- operational insights
+- multi-agent monitoring
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## 👨‍💼 HR Agent Workflow
+
+HR automation workflow for:
+- PTO requests
+- onboarding guidance
+- employee operations
+- workflow escalation
+
+![HR Agent](screenshots/hr_agent.png)
+
+---
+
+## 🔒 Security Incident Response
+
+Security operations workflow demonstrating:
+- phishing escalation
+- suspicious login detection
+- incident response automation
+- enterprise security routing
+
+![Security Agent](screenshots/security_agent.png)
+
+---
+
+## 💻 IT Support Workflow
+
+IT service desk automation system supporting:
+- password resets
+- VPN troubleshooting
+- Microsoft Teams access recovery
+- enterprise IT escalation workflows
+
+![IT Agent](screenshots/it_agent.png)
+
+---
+
+## 📊 Analytics Dashboard
+
+Interactive enterprise analytics module displaying:
+- operational KPIs
+- ticket trends
+- workflow activity
+- enterprise performance metrics
+
+![Analytics](screenshots/analytics.png)
+
+---
+
+## 📈 Enterprise Ticket Distribution
+
+Operational intelligence dashboard visualizing:
+- enterprise ticket categories
+- workflow distribution
+- HR/IT/Security workload segmentation
+- real-time support analytics
+
+![Enterprise Distribution](screenshots/enterprise_distribution.png)
 
 ---
 
