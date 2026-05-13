@@ -582,6 +582,6 @@ if user_input:
 st.divider()
 
 st.caption(
-    "HelixPoint Enterprise AI • Multi-Agent Operations Platform • Azure OpenAI • LangChain • FAISS • Streamlit • Plotly • SQLite • Python"
+"Azure OpenAI • LangChain • FAISS • Streamlit • Plotly • SQLite • Python"
 )
 
