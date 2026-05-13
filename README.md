@@ -16,7 +16,7 @@ HelixPoint AI is designed to simulate a real-world enterprise AI copilot capable
 
 Streamlit Deployment:
 
-Vineet-helixpoint-ai.streamlit.app
+https://vineet-helixpoint-ai.streamlit.app/
 
 ---
 
