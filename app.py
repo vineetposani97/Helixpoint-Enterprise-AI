@@ -122,10 +122,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.main {
-    background-color: #0E1117;
-}
-
 .stChatMessage {
     border-radius: 16px;
     padding: 14px;
@@ -143,25 +139,27 @@ st.markdown("""
 }
 
 .metric-card {
-    background-color: #1a1a1a;
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid #2d2d2d;
+background: rgba(120,120,120,0.08);
+padding: 16px;
+border-radius: 12px;
+border: 1px solid rgba(128,128,128,0.2);
 }
 
 .workflow-card {
-    background-color: #121212;
-    padding: 18px;
-    border-radius: 14px;
-    border-left: 5px solid #4F46E5;
-    margin-top: 14px;
+background: rgba(120,120,120,0.08);
+padding: 18px;
+border-radius: 14px;
+border-left: 5px solid #4F46E5;
+margin-top: 14px;
+border: 1px solid rgba(128,128,128,0.2);
 }
 
 .agent-card {
-    background-color: #161616;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+background: rgba(120,120,120,0.08);
+padding: 12px;
+border-radius: 10px;
+margin-bottom: 10px;
+border: 1px solid rgba(128,128,128,0.2);
 }
 
 </style>
