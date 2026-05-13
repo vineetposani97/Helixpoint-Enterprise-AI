@@ -87,7 +87,7 @@ SQLite database integration for:
 | Azure OpenAI | LLM orchestration |
 | LangChain | AI workflow management |
 | FAISS | Vector similarity search |
-| Sentence Transformers | Embeddings |
+| Hugging Face Embeddings | Semantic vector embeddings |
 | SQLite | Persistent storage |
 | Plotly | Analytics dashboard |
 
