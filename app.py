@@ -575,13 +575,12 @@ if user_input:
         "content": full_response
     })
 
-# =========================================================
+# ============================================================
 # FOOTER
-# =========================================================
+# ============================================================
 
 st.divider()
 
 st.caption(
-"Azure OpenAI • LangChain • FAISS • Streamlit • Plotly • SQLite • Python"
+    "Azure OpenAI • LangChain • FAISS • Streamlit • Plotly • SQLite • Python • Cursor • GitHub"
 )
-
