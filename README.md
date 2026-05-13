@@ -1,6 +1,6 @@
 # 🧠 HelixPoint Enterprise AI Platform
 
-An enterprise-grade multi-agent AI operations platform built using Azure OpenAI, HuggingFace Embeddings, LangChain, FAISS, Streamlit, Plotly, SQLite, Python, Cursor, and GitHub
+An enterprise-grade multi-agent AI operations platform built using Azure OpenAI, HuggingFace Embeddings, LangChain, FAISS, Streamlit, Plotly, SQLite, Python, Cursor, and GitHub.
 
 HelixPoint AI is designed to simulate a real-world enterprise AI copilot capable of:
 - intelligent agent routing
