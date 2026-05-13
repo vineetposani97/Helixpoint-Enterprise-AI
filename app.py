@@ -134,7 +134,6 @@ st.markdown("""
 .big-title {
     font-size: 52px;
     font-weight: 800;
-    color: white;
 }
 
 .subtitle {
