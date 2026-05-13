@@ -1,6 +1,10 @@
 # 🧠 HelixPoint Enterprise AI Platform
 
+<<<<<<< HEAD
 An enterprise-grade multi-agent AI operations platform built using Azure OpenAI, LangChain, FAISS, Hugging Face Embeddings, Streamlit, Plotly, Pandas, SQLite, Python, Cursor, and GitHub.
+=======
+An enterprise-grade multi-agent AI operations platform built using Azure OpenAI, HuggingFace Embeddings, LangChain, FAISS, Streamlit, Plotly, SQLite, Python, Cursor, and GitHub.
+>>>>>>> fd7c46a9d8473f97813b41e39756038eebcdfd41
 
 HelixPoint AI is designed to simulate a real-world enterprise AI copilot capable of:
 - intelligent agent routing
@@ -88,7 +92,11 @@ SQLite database integration for:
 | LangChain | AI workflow management |
 | FAISS | Vector similarity search |
 | Hugging Face Embeddings | Semantic vector embeddings |
+<<<<<<< HEAD
 | Pandas | Data processing and analytics handling |
+=======
+| SQLite | Persistent storage |
+>>>>>>> fd7c46a9d8473f97813b41e39756038eebcdfd41
 | Plotly | Analytics dashboard |
 | SQLite | Persistent storage |
 | Cursor | AI-assisted development environment |
