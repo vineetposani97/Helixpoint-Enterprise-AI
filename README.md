@@ -1,4 +1,4 @@
-# 🧠 HelixPoint Enterprise AI Platform
+# 🧠 HelixPoint Enterprise AI 
 
 
 An enterprise-grade multi-agent AI operations platform built using Azure OpenAI, LangChain, FAISS, Hugging Face Embeddings, Streamlit, Plotly, Pandas, SQLite, Python, Cursor, and GitHub.
