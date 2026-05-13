@@ -582,5 +582,5 @@ if user_input:
 st.divider()
 
 st.caption(
-    "Azure OpenAI • LangChain • FAISS • Streamlit • Plotly • SQLite • Python • Cursor • GitHub"
+"Azure OpenAI • LangChain • FAISS • Hugging Face Embeddings • Streamlit • Plotly • Pandas • SQLite • Python • Cursor • GitHub"
 )
